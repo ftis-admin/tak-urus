@@ -1,0 +1,15 @@
+<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="{{@BASE}}{{'root'|alias}}">
+                <b>Tak-Urus</b> &nbsp; <small>v0.1</small>
+            </a>
+        </div>
+        <div class="navbar-end">
+            <check if="{{@USER.object}}">
+                <a class="navbar-item" href="{{'file_page' | alias}}">Mulai unduh!</a>
+                <a class="navbar-item" href="">Halo &nbsp; <b>{{@USER.object->givenname}}</b>!</a>
+            </check>
+        </div>
+    </div>
+</nav>

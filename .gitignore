@@ -5,3 +5,4 @@
 #FatFree Related
 /app/tmp/
 /app/config/site.ini
+/app/config/google_client_secret.json

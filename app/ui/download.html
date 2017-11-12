@@ -1,0 +1,32 @@
+<section class="section">
+    <div class="container">
+        <div class="hero is-big is-link">
+            <div class="hero-body">
+                <div class="columns">
+                    <div class="column">
+                        <h1 class="title">Unduh Drive Z</h1>
+                        <h2 class="subtitle">Ambil file Drive Z lama kalian</h2>
+                    </div>
+                    <div class="column content">
+                        <p>
+                            Maksimal file yang dapat anda unduh kemungkinan adalah 100MB jika drive Z anda benar-benar penuh. Link akan aktif selama
+                            2 jam saja. Lebih dari itu, anda harus mendownload ulang file tersebut.
+                            <br/> Memiliki masalah dengan download? Mohon gunakan internet yang stabil.
+                        </p>
+                        <p>
+                            Dan berikut adalah tombol untuk mengunduh:
+                        </p>
+                        <a href="{{'file_get', " token=" . @file.token . " ,sign=" . @file.sign | alias}}" class="button is-big">Unduh</a>
+
+                        <p>
+                            Menggunakan download manager seperti Internet Download Manager? Anda dapat mengcopy-paste link ini:
+                        </p>
+                        <div class="field">
+                            <textarea class="textarea" readonly>{{@SCHEME}}://{{@SERVER.HTTP_HOST}}{{'file_get', "token=" . @file.token . ",sign=" . @file.sign | alias}}</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
