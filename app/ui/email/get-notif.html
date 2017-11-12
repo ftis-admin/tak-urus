@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <body>
     <p>
         Hai {{@USER.name}},
@@ -23,11 +22,11 @@
             </tr>
             <tr>
                 <th>Browser</th>
-                <td>{{@browserinfo->browser.title}}</td>
+                <td>{{@browserinfo->getBrowserName()}}</td>
             </tr>
             <tr>
-                <th>Device/OS</th>
-                <td>{{@browserinfo->device.title?@browserinfo->device.title:"Computer"}} {{@browserinfo->os.title}}</td>
+                <th>OS</th>
+                <td>{{@browserinfo->getOperatingSystem()}}</td>
             </tr>
         </tbody>
     </table>
@@ -44,5 +43,4 @@
         dapat menghubungi admin secara langsung.
     </small>
 </body>
-
 </html>

@@ -1,6 +1,7 @@
 <?php
 namespace Controller;
 use \Firebase\JWT\JWT;
+use FlameCore\UserAgent\UserAgent;
 class File {
     public function get_file($f3) {
         $jwt = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9." . $f3->PARAMS['token'] . "." . $f3->PARAMS['sign'];
@@ -10,9 +11,24 @@ class File {
         } catch (\Exception $e){
             return $f3->error(400, "Token tidak valid. Anda kurang beruntung.");
         }
-
-        //var_dump($data);
+        $f3->set('ipinfo',(new \DavidePastore\Ipinfo\Ipinfo(["token"=>$f3->ipinfo['apikey']]))->getFullIpDetails($f3->SERVER['REMOTE_ADDR']));
+        $f3->set('browserinfo', UserAgent::createFromGlobal());
         
+        // send email dulu.
+        $mailer = \Model\Email::instance()->createMailer();
+        try {
+            if(!$mailer)
+                return $f3->error(503, "Whoops! Ada pelanggaran keamanan saat mencoba mendownload file. Donwload dibatalkan.");
+            $mailer->addAddress($f3->USER['object']->email, $f3->USER['object']->name);        
+            $mailer->isHTML(true);
+            $mailer->Subject = "Notifikasi Pengunduhan Drive Z";
+            $mailer->Body = \View\Email::render("get-notif.html");
+            $hasil = $mailer->send();
+        } catch (\Exception $e){
+            echo $mailer->ErrorInfo;
+            return $f3->error(503, "Whoops! Ada pelanggaran keamanan saat mencoba mendownload file. Donwload dibatalkan.");
+        }
+
         // lempar filenya.
         $filename = $data->dzf;
         if(!is_file($f3->ZZIP . $filename)){
