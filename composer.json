@@ -1,0 +1,22 @@
+{
+    "name": "ftis-admin/tak-urus",
+    "description": "",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Chris",
+            "email": "christianto.g.14@gmail.com"
+        }
+    ],
+    "minimum-stability": "beta",
+    "require": {
+        "bcosca/fatfree-core": "^3.6"
+    },
+    "config": {
+        "vendor-dir": "vendor"
+    },
+    "require-dev": {
+        "rafamds/f3-falsum": "^2.6"
+    }
+}

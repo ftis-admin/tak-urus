@@ -1,0 +1,7 @@
+#Composer Related
+/vendor/
+/node_modules/
+
+#FatFree Related
+/app/tmp/
+/app/config/site.ini
