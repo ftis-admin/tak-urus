@@ -25,4 +25,10 @@ class Auth {
         $f3->clear('SESSION');
         $f3->reroute($f3->google_api['client']->createAuthUrl());
     }
+
+    public function get_logout($f3){
+        $f3->clear('SESSION');
+        \Flash::instance()->addMessage('Berhasil logout, terima kasih sudah berkunjung!', 'info');
+        return $f3->reroute('@root');
+    }
 }

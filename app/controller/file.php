@@ -29,6 +29,18 @@ class File {
             return $f3->error(503, "Whoops! Ada pelanggaran keamanan saat mencoba mendownload file. Donwload dibatalkan.");
         }
 
+        //log si yang mintanya:
+        $ret = new \Model\RetriveralLog();
+        $ret->copyfrom([
+            "user"=>$f3->USER['object']->id,
+            "type"=>"zip-fetch",
+            "detail"=>json_encode([
+                "ipinfo" => $f3->ipinfo,
+                "browserinfo"=>$f3->browserinfo
+            ]),
+        ]);
+        $ret->save();
+        
         // lempar filenya.
         $filename = $data->dzf;
         if(!is_file($f3->ZZIP . $filename)){
