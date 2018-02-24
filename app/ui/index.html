@@ -13,13 +13,21 @@
         <div class="columns">
             <div class="column is-half">
                 <include href="component/flash-message.html" />
-                
-                <form action="{{'auth_gugel' | alias}}" method="POST">
-                    <div class="control">
-                        <pre>{{var_dump(@USER.object->username)}}</pre>
-                        <button class="button is-primary">Login with Google</button>
-                    </div>
-                </form>
+                <check if="{{@USER.object}}">
+                    <true>
+                        <div class="control">
+                            <a href="" class="button is-black">Mulai Unduh</a>
+                            <a href="" class="button">Keluar dari akun ini.</a>
+                        </div>
+                    </true>
+                    <false>
+                        <form action="{{'auth_gugel' | alias}}" method="POST">
+                            <div class="control">
+                                <button class="button is-primary">Login with Google</button>
+                            </div>
+                        </form>
+                    </false>
+                </check>
             </div>
         </div>
     </div>

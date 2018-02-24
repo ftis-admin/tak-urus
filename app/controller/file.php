@@ -37,6 +37,7 @@ class File {
 
         \Web::instance()->send($f3->ZZIP . $filename);
     }
+
     public function get_page($f3) {
         $filename = $f3->USER['object']->username . ".zip";
         if(!is_file($f3->ZZIP . $filename)){
@@ -53,6 +54,7 @@ class File {
         $jwt = JWT::encode($token, $f3->get('SECURITY.jwt_token'));
         $tokens = explode(".", $jwt);
         $f3->set("file", ["token"=>$tokens[1], "sign"=>$tokens[2], "jwt"=>$jwt]);
-        return \View\Template::render("download.html");
+        return \View\Template::render("download.html", "Download Berkas");
     }
+
 }
