@@ -17,6 +17,8 @@ class Auth {
         }
         
         $f3->SESSION['gtoken'] = $token;
+        // email a pemberitahuan
+        
         $f3->reroute('@root');
     }
 
