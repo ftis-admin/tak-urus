@@ -5,7 +5,7 @@
         Hai {{@USER.object->name}},
         <br/> Kami hanya ingin memberitahukan bahwa anda baru saja merequest berkas Drive Z anda, dan kami mengirimkan notifikasi
         email berikut agar anda mengetahui bahwa berkas Drive Z anda yang di hosting oleh Lab FTIS telah di akses melalui
-        <a href="http://tak-urus.labftis.net/">tak-urus.labftis.net</a>.
+        <a href="{{@SCHEME}}://{{@SERVER.HTTP_HOST}}">{{@SERVER.HTTP_HOST}}</a>.
     </p>
     <p>
         Akun anda baru saja diakses melalui
