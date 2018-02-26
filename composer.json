@@ -19,7 +19,8 @@
         "ikkez/f3-middleware": "^1.1",
         "firebase/php-jwt": "^5.0",
         "phpmailer/phpmailer": "^6.0",
-        "flamecore/user-agent": "dev-master"
+        "flamecore/user-agent": "dev-master",
+        "kekesed/cloudflare-adaptor": "^1.1@beta"
     },
     "config": {
         "vendor-dir": "vendor"
