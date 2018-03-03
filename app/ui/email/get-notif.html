@@ -1,47 +1,54 @@
 <!DOCTYPE html>
 <html lang="id">
-<body>
-    <p>
-        Hai <b>{{@USER.object->name}}</b>,
-        <br/> Kami hanya ingin memberitahukan bahwa anda baru saja merequest berkas Drive Z anda, dan kami mengirimkan notifikasi
-        email berikut agar anda mengetahui bahwa berkas Drive Z anda yang di hosting oleh Lab FTIS telah di akses melalui
-        <a href="{{@SCHEME}}://{{@SERVER.HTTP_HOST}}">{{@SERVER.HTTP_HOST}}</a>.
-    </p>
-    <p>
-        Akun anda baru saja diakses melalui
-    </p>
-    <table>
-        <tbody>
-            <tr>
-                <th>IP</th>
-                <td>{{@ipinfo->getIp()}} ({{@ipinfo->getHostname()}})</td>
-            </tr>
-            <tr>
-                <th>Lokasi</th>
-                <td>{{@ipinfo->getCity()}}, {{@ipinfo->getCountry()}}</td>
-            </tr>
-            <tr>
-                <th>Browser</th>
-                <td>{{@browserinfo->getBrowserName()}}</td>
-            </tr>
-            <tr>
-                <th>OS</th>
-                <td>{{@browserinfo->getOperatingSystem()}}</td>
-            </tr>
-        </tbody>
-    </table>
-    <small>Catatan: Info Lokasi, Browser, dan OS mungkin tidak akurat.</small>
-    <p>
-        Jika anda merasa tidak melakukan hal tersebut, maka kami menyarankan untuk segeralah ganti password akun UNPAR anda. Karena kami menggunakan jasa
-        Google dan Akun UNPAR untuk memverifikasi identitas anda.
-    </p>
-    <p>
-        Salam,<br/>
-        Administrator Labkom FTIS.
-    </p>
-    <small>
-        Mohon untuk tidak membalas email ini, email ini dikirimkan oleh sistem kami. Untuk informasi lebih lanjut, anda
-        dapat menghubungi admin secara langsung.
-    </small>
+<body style="padding:0; margin:0; font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Helvetica', 'Aria', sans-serif; color: #363636;">
+    <div style="padding: 15px; background-color: #4a4a4a; font-size: 1rem; color:#fff;">
+        <div style="width: 450px; margin:auto;">
+           <b>Tak-Urus</b> - File retriveral point
+        </div>
+    </div>
+    <div style="width: 450px; margin:auto;">
+        <p style="margin-top: 2rem; color: #363636;">
+            Hai <b>{{@USER.object->name}}</b>,
+            <br/> Kami hanya ingin memberitahukan bahwa anda baru saja merequest berkas Drive Z anda, dan kami mengirimkan notifikasi
+            email berikut agar anda mengetahui bahwa berkas Drive Z anda yang di hosting oleh Lab FTIS telah di akses melalui
+            <a href="{{@SCHEME}}://{{@SERVER.HTTP_HOST}}">{{@SERVER.HTTP_HOST}}</a>.
+        </p>
+        <p style="margin-top: 2rem; color: #363636;">
+            Akun anda baru saja diakses melalui
+        </p>
+        <table style="width: 100%; color: #363636;">
+            <tbody>
+                <tr>
+                    <th>IP</th>
+                    <td>{{@ipinfo->getIp()}} ({{@ipinfo->getHostname()}})</td>
+                </tr>
+                <tr>
+                    <th>Lokasi</th>
+                    <td>{{@ipinfo->getCity()}}, {{@ipinfo->getCountry()}}</td>
+                </tr>
+                <tr>
+                    <th>Browser</th>
+                    <td>{{@browserinfo->getBrowserName()}}</td>
+                </tr>
+                <tr>
+                    <th>OS</th>
+                    <td>{{@browserinfo->getOperatingSystem()}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <small style="color: #555">Catatan: Info Lokasi, Browser, dan OS mungkin tidak akurat.</small>
+        <p style="margin-top: 2rem; color: #363636;">
+            Jika anda merasa tidak melakukan hal tersebut, maka kami menyarankan untuk segeralah ganti password akun UNPAR anda. Karena kami menggunakan jasa
+            Google dan Akun UNPAR untuk memverifikasi identitas anda.
+        </p>
+        <p style="margin-top: 2rem; color: #363636;">
+            Salam,<br/>
+            Administrator Labkom FTIS.
+        </p>
+        <small style="margin-top: 2rem; color: orange;">
+            Mohon untuk tidak membalas email ini, email ini dikirimkan oleh sistem kami. Untuk informasi lebih lanjut, anda
+            dapat menghubungi admin secara langsung.
+        </small>
+    </div>    
 </body>
 </html>

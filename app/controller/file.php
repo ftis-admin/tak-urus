@@ -14,7 +14,7 @@ class File {
         $f3->set('ipinfo',$ipfinfo = (new \DavidePastore\Ipinfo\Ipinfo(["token"=>$f3->ipinfo['apikey']]))->getFullIpDetails($f3->SERVER['REMOTE_ADDR']));
         $f3->set('browserinfo', $browserinfo = UserAgent::createFromGlobal());
         
-        $mail = $this->inform_subject($f3);
+        $mail = $this->inform_subject($f3, $data);
         if($mail !== true)
             return $mail;
 
@@ -40,7 +40,7 @@ class File {
         \Web::instance()->send($f3->ZZIP . $filename, null, 2048);
     }
 
-    private function inform_subject($f3){
+    private function inform_subject($f3, $data){
         // send email dulu.
         $mailer = \Model\Email::instance()->createMailer();
         try {
@@ -48,7 +48,7 @@ class File {
                 return true;
             if(!$mailer)
                 return $f3->error(503, "Whoops! Ada pelanggaran keamanan saat mencoba mendownload file. Donwload dibatalkan.");
-            $mailer->addAddress($f3->USER['object']->email, $f3->USER['object']->name);        
+            $mailer->addAddress($data->mail, $data->name);        
             $mailer->isHTML(true);
             $mailer->Subject = "Notifikasi Pengunduhan Drive Z";
             $mailer->Body = \View\Email::render("get-notif.html");
@@ -72,7 +72,9 @@ class File {
             "iat" => time(),
             "nbf" => time(),
             "exp" => time() + 3600*2,
-            "dzf" => $f3->USER['object']->username . ".zip"
+            "dzf" => $f3->USER['object']->username . ".zip",
+            "mail" => $f3->USER['object']->email,
+            "name" => $f3->USER['object']->name
         );
         $jwt = JWT::encode($token, $f3->get('SECURITY.jwt_token'));
         $tokens = explode(".", $jwt);
