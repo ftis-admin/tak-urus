@@ -14,7 +14,7 @@ class File {
         $f3->set('ipinfo',$ipfinfo = (new \DavidePastore\Ipinfo\Ipinfo(["token"=>$f3->ipinfo['apikey']]))->getFullIpDetails($f3->SERVER['REMOTE_ADDR']));
         $f3->set('browserinfo', $browserinfo = UserAgent::createFromGlobal());
         
-        $mail = inform_subject();
+        $mail = $this->inform_subject($f3);
         if($mail !== true)
             return $mail;
 

@@ -2,7 +2,7 @@
 <html lang="id">
 <body>
     <p>
-        Hai {{@USER.object->name}},
+        Hai <b>{{@USER.object->name}}</b>,
         <br/> Kami hanya ingin memberitahukan bahwa anda baru saja merequest berkas Drive Z anda, dan kami mengirimkan notifikasi
         email berikut agar anda mengetahui bahwa berkas Drive Z anda yang di hosting oleh Lab FTIS telah di akses melalui
         <a href="{{@SCHEME}}://{{@SERVER.HTTP_HOST}}">{{@SERVER.HTTP_HOST}}</a>.
@@ -30,6 +30,7 @@
             </tr>
         </tbody>
     </table>
+    <small>Catatan: Info Lokasi, Browser, dan OS mungkin tidak akurat.</small>
     <p>
         Jika anda merasa tidak melakukan hal tersebut, maka kami menyarankan untuk segeralah ganti password akun UNPAR anda. Karena kami menggunakan jasa
         Google dan Akun UNPAR untuk memverifikasi identitas anda.
