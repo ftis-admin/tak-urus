@@ -5,5 +5,5 @@ Nama Tak-Urus di ambil dari plesetan sebuah nama server, Taurus, yang sudah tewa
 
 File yang ada diambil dari backup yang dilakukan secara periodik oleh sistem, dan hanya admin, dosen, dan pemilik akun yang dapat mengakses file tersebut.
 
-## Getting Started
-1. TODO.
+## License
+[MIT](LICENSE).
