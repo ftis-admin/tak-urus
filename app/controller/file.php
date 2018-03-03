@@ -47,7 +47,8 @@ class File {
             return $f3->error(404, "File yang anda cari tidak ada.");
         }
 
-        \Web::instance()->send($f3->ZZIP . $filename);
+
+        \Web::instance()->send($f3->ZZIP . $filename, null, 2048);
     }
 
     public function get_page($f3) {
